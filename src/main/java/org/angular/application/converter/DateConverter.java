@@ -1,5 +1,6 @@
 package org.angular.application.converter;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,16 +12,25 @@ import br.com.caelum.vraptor.ioc.Component;
 @SuppressWarnings("rawtypes")
 public class DateConverter implements SingleValueConverter {
 
+    private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
     @Override
     public String toString(Object o) {
-        Date data = (Date) o;
-        SimpleDateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
-        return formatador.format(data);
+    	if (o != null) {
+            Date data = (Date) o;
+            return "***" + df.format(data);
+    	} else {
+    		return "";
+    	}
     }
 
     @Override
     public Object fromString(String string) {
-        return null;
+        try {
+			return df.parse(string);
+		} catch (ParseException e) {
+			return null;
+		}
     }
 
 	@Override

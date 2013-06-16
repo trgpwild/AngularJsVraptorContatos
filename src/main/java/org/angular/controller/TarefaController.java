@@ -67,7 +67,14 @@ public class TarefaController extends Controller {
 	
 	@Override
 	protected Serializer serializer(Object object) {
-		return super.serializer(object).exclude("usuario").include("usuario.id");
+		return super.serializer(object).exclude(
+			"usuario.username",
+			"usuario.password",
+			"usuario.email",
+			"usuario.ativo",
+			"usuario.tries",
+			"usuario.perfis"
+		);
 	}
 
 }
