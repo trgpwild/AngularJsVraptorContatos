@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name="contato")
 @SuppressWarnings("serial")
-public class Contato extends org.angular.model.Entity {
+public class Contato extends org.angular.application.Entity {
 	
 	@NotEmpty
 	@Column(name="nome")

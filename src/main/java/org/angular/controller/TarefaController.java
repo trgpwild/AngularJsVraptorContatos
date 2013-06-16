@@ -1,8 +1,8 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Contato;
-import org.angular.repository.ContatoRepository;
+import org.angular.model.Tarefa;
+import org.angular.repository.TarefaRepository;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Get;
@@ -11,14 +11,15 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.serialization.Serializer;
 
 @Resource
-@Path("contatos")
-public class ContatoController extends Controller {
+@Path("tarefas")
+public class TarefaController extends Controller {
 
-	private ContatoRepository repository;
+	private TarefaRepository repository;
 
-	public ContatoController(Result result, ContatoRepository repository) {
+	public TarefaController(Result result, TarefaRepository repository) {
 		super(result);
 		this.repository = repository;
 	}
@@ -44,24 +45,29 @@ public class ContatoController extends Controller {
 	@Post
 	@Path({"","/"})
 	@Consumes("application/json")
-	public void insert(Contato contato) {
-		repository.insert(contato);
+	public void insert(Tarefa tarefa) {
+		repository.insert(tarefa);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
+	@Path("/{tarefa.id}")
 	@Consumes("application/json")
-	public void update(Contato contato) {
-		repository.update(contato);
+	public void update(Tarefa tarefa) {
+		repository.update(tarefa);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
-	public void delete(Contato contato) {
-		repository.delete(contato);
+	@Path("/{tarefa.id}")
+	public void delete(Tarefa tarefa) {
+		repository.delete(tarefa);
 		result.nothing();
+	}
+	
+	@Override
+	protected Serializer serializer(Object object) {
+		return super.serializer(object).exclude("usuario").include("usuario.id");
 	}
 
 }

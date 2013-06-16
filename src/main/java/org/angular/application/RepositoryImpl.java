@@ -8,9 +8,6 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.angular.model.Entity;
-
-
 @SuppressWarnings("unchecked")
 public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 	
@@ -31,7 +28,7 @@ public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 		return entityManager.merge(entity);
 	}
 	
-	public void remove(T entity) {
+	public void delete(T entity) {
 		entityManager.remove(entity);
 	}
 	
@@ -45,7 +42,7 @@ public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 		return resultList;
 	}
 	
-	public List<T> getListPagination(int first, int size, Map<String,String> filters) {
+	public List<T> pagination(int first, int size, Map<String,String> filters) {
 		
 		StringBuilder queryString = new StringBuilder("select o from ").append(clazz.getSimpleName()).append(" o ");
 		

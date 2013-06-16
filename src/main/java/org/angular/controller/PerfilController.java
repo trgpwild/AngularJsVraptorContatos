@@ -1,8 +1,8 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Contato;
-import org.angular.repository.ContatoRepository;
+import org.angular.model.Perfil;
+import org.angular.repository.PerfilRepository;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Get;
@@ -13,12 +13,12 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
 @Resource
-@Path("contatos")
-public class ContatoController extends Controller {
+@Path("perfis")
+public class PerfilController extends Controller {
 
-	private ContatoRepository repository;
+	private PerfilRepository repository;
 
-	public ContatoController(Result result, ContatoRepository repository) {
+	public PerfilController(Result result, PerfilRepository repository) {
 		super(result);
 		this.repository = repository;
 	}
@@ -44,23 +44,23 @@ public class ContatoController extends Controller {
 	@Post
 	@Path({"","/"})
 	@Consumes("application/json")
-	public void insert(Contato contato) {
-		repository.insert(contato);
+	public void insert(Perfil perfil) {
+		repository.insert(perfil);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
+	@Path("/{perfil.id}")
 	@Consumes("application/json")
-	public void update(Contato contato) {
-		repository.update(contato);
+	public void update(Perfil perfil) {
+		repository.update(perfil);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
-	public void delete(Contato contato) {
-		repository.delete(contato);
+	@Path("/{perfil.id}")
+	public void delete(Perfil perfil) {
+		repository.delete(perfil);
 		result.nothing();
 	}
 

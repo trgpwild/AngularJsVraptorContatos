@@ -1,8 +1,8 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Contato;
-import org.angular.repository.ContatoRepository;
+import org.angular.model.Usuario;
+import org.angular.repository.UsuarioRepository;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Get;
@@ -11,14 +11,15 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.serialization.Serializer;
 
 @Resource
-@Path("contatos")
-public class ContatoController extends Controller {
+@Path("usuarios")
+public class UsuarioController extends Controller {
 
-	private ContatoRepository repository;
+	private UsuarioRepository repository;
 
-	public ContatoController(Result result, ContatoRepository repository) {
+	public UsuarioController(Result result, UsuarioRepository repository) {
 		super(result);
 		this.repository = repository;
 	}
@@ -44,24 +45,29 @@ public class ContatoController extends Controller {
 	@Post
 	@Path({"","/"})
 	@Consumes("application/json")
-	public void insert(Contato contato) {
-		repository.insert(contato);
+	public void insert(Usuario usuario) {
+		repository.insert(usuario);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
+	@Path("/{usuario.id}")
 	@Consumes("application/json")
-	public void update(Contato contato) {
-		repository.update(contato);
+	public void update(Usuario usuario) {
+		repository.update(usuario);
 		result.nothing();
 	}
 
 	@Put
-	@Path("/{contato.id}")
-	public void delete(Contato contato) {
-		repository.delete(contato);
+	@Path("/{usuario.id}")
+	public void delete(Usuario usuario) {
+		repository.delete(usuario);
 		result.nothing();
 	}
-
+	
+	@Override
+	protected Serializer serializer(Object object) {
+		return super.serializer(object).exclude("perfis.authority");
+	}
+	
 }
