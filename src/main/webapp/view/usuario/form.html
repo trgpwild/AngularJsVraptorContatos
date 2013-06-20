@@ -1,0 +1,43 @@
+<h2 ng-show="usuario.id">Edit Usuario</h2>
+<h2 ng-hide="usuario.id">New Usuario</h2>
+<form name="myForm">
+	<table>
+		<tr>
+			<td valign="top">
+				<div class="control-group" ng-class="{error: myForm.authority.$invalid}">
+					<label>Username</label><input type="text" name="username" ng-model="usuario.username" required><span ng-show="myForm.username.$error.required" class="help-inline">Required</span>
+				</div>
+				<div class="control-group" ng-class="{error: myForm.authority.$invalid}">
+					<label>Password</label><input type="password" name="password" ng-model="usuario.password" required><span ng-show="myForm.password.$error.required" class="help-inline">Required</span>
+				</div>
+				<div class="control-group" ng-class="{error: myForm.perfis.$invalid}">
+					<select id="perfis" multiple ng-multiple="true" ng-model="usuario.authorities" ng-options="a.authority for a in roles" required></select>
+					<span ng-show="myForm.perfis.$error.required" class="help-inline">Required</span>
+				</div>
+			</td>
+			<td valign="top">
+				<div class="control-group" ng-class="{error: myForm.email.$invalid}">
+					<label>Email</label>
+					<input type="email" name="email" ng-model="usuario.email" required>
+					<span ng-show="myForm.email.$error.required" class="help-inline">Required</span>
+					<span ng-show="myForm.email.$error.email" class="help-inline">This is not a valid email</span>
+				</div>
+				<div class="control-group" ng-class="{error: myForm.tries.$invalid}">
+					<label>Tries</label>
+					<input type="number" name="tries" ng-model="usuario.tries" min="0" max="3" required integer>
+					<span ng-show="myForm.tries.$error.required" class="help-inline">Required</span>
+					<span ng-show="myForm.tries.$error.integer" class="help-inline">This is not valid number for Tries!</span>
+					<span ng-show="myForm.tries.$error.min || myForm.tries.$error.max" class="help-inline">The value must be in range 0 to 3!</span>
+				</div>
+				<div class="control-group" ng-class="{error: myForm.ativo.$invalid}">
+					<label>Ativo</label>
+					<input type="checkbox" name="ativo" ng-model="usuario.ativo" required>
+					<span ng-show="myForm.ativo.$error.required" class="help-inline">Required</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br> <a href="#/usuario/" class="btn">Cancel</a>
+	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
+	<button ng-click="destroy()" ng-show="usuario.id" class="btn btn-danger">Delete</button>
+</form>

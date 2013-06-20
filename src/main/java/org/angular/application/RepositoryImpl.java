@@ -21,6 +21,7 @@ public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 	}
 	
 	public void insert(T entity) {
+		entity.setId(null);
 		entityManager.persist(entity);
 	}
 	
@@ -29,7 +30,7 @@ public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 	}
 	
 	public void delete(T entity) {
-		entityManager.remove(entity);
+		entityManager.remove(find((I) entity.getId()));
 	}
 	
 	public T find(I id) {

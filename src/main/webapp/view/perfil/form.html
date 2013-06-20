@@ -1,0 +1,10 @@
+<h2 ng-show="perfil.id">Edit Perfil</h2>
+<h2 ng-hide="perfil.id">New Perfil</h2>
+<form name="myForm">
+	<div class="control-group" ng-class="{error: myForm.authority.$invalid}">
+		<label>Nome</label><input type="text" name="authority" ng-model="perfil.perfil.authority" required><span ng-show="myForm.authority.$error.required" class="help-inline">Required</span>
+	</div>
+	<br> <a href="#/perfil/" class="btn">Cancel</a>
+	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
+	<button ng-click="destroy()" ng-show="perfil.perfil.id" class="btn btn-danger">Delete</button>
+</form>

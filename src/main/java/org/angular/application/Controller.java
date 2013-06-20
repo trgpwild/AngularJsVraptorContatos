@@ -13,7 +13,15 @@ public class Controller {
 	}
 
 	protected Serializer serializer(Object object) {
-		return result.use(Results.json()).withoutRoot().from(object).recursive();
+		return serializer(object, false);
+	}
+	
+	protected Serializer serializer(Object object, boolean withRoot) {
+		if (withRoot) {
+			return result.use(Results.json()).from(object).recursive();
+		} else {
+			return result.use(Results.json()).withoutRoot().from(object).recursive();
+		}
 	}
 
 }

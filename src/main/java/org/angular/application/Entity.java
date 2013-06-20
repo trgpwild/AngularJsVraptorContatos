@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 public class Entity implements Serializable {
 	
 	@Id @GeneratedValue
-	private Long id;
+	protected Long id;
 	
 	public void setId(Long id) {
 		this.id = id;
