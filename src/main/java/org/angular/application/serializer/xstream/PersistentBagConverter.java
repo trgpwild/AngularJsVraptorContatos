@@ -1,4 +1,4 @@
-package org.angular.application.converter;
+package org.angular.application.serializer.xstream;
 
 import java.util.Collection;
 

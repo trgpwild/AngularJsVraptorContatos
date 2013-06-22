@@ -2,9 +2,9 @@
 <h2 ng-hide="contato.id">New Contato</h2>
 <form name="myForm">
 	<div class="control-group" ng-class="{error: myForm.nome.$invalid}">
-		<label>Nome</label><input type="text" name="nome" ng-model="contato.nome" required><span ng-show="myForm.nome.$error.required" class="help-inline">Required</span>
+		<label>Nome</label><input type="text" name="nome" ng-model="model.contato.nome" required><span ng-show="myForm.nome.$error.required" class="help-inline">Required</span>
 	</div>
-	<label>Description</label> <input type="text" name="endereco" ng-model="contato.endereco"></input> <br> <a href="#/contato/" class="btn">Cancel</a>
+	<label>Description</label> <input type="text" name="endereco" ng-model="model.contato.endereco"></input> <br> <a href="#/contato/" class="btn">Cancel</a>
 	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-	<button ng-click="destroy()" ng-show="contato.id" class="btn btn-danger">Delete</button>
+	<button ng-click="destroy()" ng-show="model.contato.id" class="btn btn-danger">Delete</button>
 </form>

@@ -3,30 +3,28 @@ TarefaController = (function() {
 	"use strict";
 	
 	var root = '/tarefa/';
-	var model = 'tarefa';
-	var list = 'tarefaList';
-	var emptyObj = {"id":0, "nome":'', "dataExecucao":''};
+	var emptyObj = {tarefa: {"id":0, "nome":'', "dataExecucao":''}};
 	
 	function TarefaController() {}
 
 	TarefaController.prototype.read = function($scope, $location, TarefaResource) {
-		masterRead($scope, $location, TarefaResource, list);
+		masterRead($scope, $location, TarefaResource);
 	}
 
 	TarefaController.prototype.create = function($scope, $location, TarefaResource, UsuarioResource) {
 		UsuarioResource.query(function (res) { $scope.usuarios = res; });
-		masterCreate($scope, $location, TarefaResource, model, root, emptyObj);
+		masterCreate($scope, $location, TarefaResource, root, emptyObj);
 	}
 
 	TarefaController.prototype.update = function($scope, $routeParams, $window, $location, TarefaResource, UsuarioResource) {
-		masterUpdate($scope, $routeParams, $window, $location, TarefaResource, model, root, function(action) {
+		masterUpdate($scope, $routeParams, $window, $location, TarefaResource, root, function(action) {
 			if (action == 'get') {
-				var usel = $scope[model].usuario;
+				var usel = $scope.model.tarefa.usuario;
 				UsuarioResource.query(function (res) {
 					$scope.usuarios = res;
 					$.each(res, function(index, item){
 						if (usel.id == item.id) {
-							$scope[model].usuario = item;
+							$scope.model.tarefa.usuario = item;
 						}
 					});
 				});
@@ -37,5 +35,4 @@ TarefaController = (function() {
 	return TarefaController;
   
 })();
-
 var tarefaController = new TarefaController();

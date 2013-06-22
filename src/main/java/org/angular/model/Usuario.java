@@ -34,7 +34,6 @@ public class Usuario extends org.angular.application.Entity {
 	@Column(name="tentativas_login")
 	private int tries;
 
-	@NotEmpty
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="usuario_perfil",
 			joinColumns=@JoinColumn(name="id_usuario"),

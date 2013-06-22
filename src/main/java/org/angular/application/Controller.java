@@ -1,11 +1,14 @@
 package org.angular.application;
 
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.serialization.JSONSerialization;
 import br.com.caelum.vraptor.serialization.Serializer;
 import br.com.caelum.vraptor.view.Results;
 
 public class Controller {
 
+	public static String dateFormat = "yyyy-MM-dd";
+	
 	protected Result result;
 
 	public Controller(Result result) {
@@ -17,11 +20,20 @@ public class Controller {
 	}
 	
 	protected Serializer serializer(Object object, boolean withRoot) {
-		if (withRoot) {
-			return result.use(Results.json()).from(object).recursive();
-		} else {
-			return result.use(Results.json()).withoutRoot().from(object).recursive();
+		JSONSerialization json = result.use(Results.json());
+		if (!withRoot) {
+			json = (JSONSerialization) json.withoutRoot();
 		}
+		Serializer serializer = json.from(object).recursive();
+		String[] excludeProps = excludeProps();
+		if (excludeProps != null && excludeProps.length > 0) {
+			serializer.exclude(excludeProps);
+		}
+		return serializer;
+	}
+	
+	protected String[] excludeProps() {
+		return null;
 	}
 
 }

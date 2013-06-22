@@ -1,6 +1,6 @@
 package org.angular.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Tarefa extends org.angular.application.Entity {
 	private String nome;
 
 	@Temporal(TemporalType.DATE)
-	private Date dataExecucao;
+	private Calendar dataExecucao;
 	
 	@OneToOne
 	@JoinColumn(name="id_usuario")
@@ -36,11 +36,11 @@ public class Tarefa extends org.angular.application.Entity {
 		return nome;
 	}
 	
-	public Date getDataExecucao() {
+	public Calendar getDataExecucao() {
 		return dataExecucao;
 	}
 	
-	public void setDataExecucao(Date dataExecucao) {
+	public void setDataExecucao(Calendar dataExecucao) {
 		this.dataExecucao = dataExecucao;
 	}
 	

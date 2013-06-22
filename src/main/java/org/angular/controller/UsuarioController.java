@@ -5,13 +5,13 @@ import org.angular.model.Usuario;
 import org.angular.repository.UsuarioRepository;
 
 import br.com.caelum.vraptor.Consumes;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.serialization.Serializer;
 
 @Resource
 @Path("usuarios")
@@ -39,7 +39,7 @@ public class UsuarioController extends Controller {
 	@Get
 	@Path("/{id}")
 	public void find(Long id) {
-		serializer(repository.find(id)).serialize();
+		serializer(repository.find(id),true).serialize();
 	}
 
 	@Post
@@ -58,16 +58,16 @@ public class UsuarioController extends Controller {
 		result.nothing();
 	}
 
-	@Put
+	@Delete
 	@Path("/{usuario.id}")
 	public void delete(Usuario usuario) {
 		repository.delete(usuario);
 		result.nothing();
 	}
-	
+
 	@Override
-	protected Serializer serializer(Object object) {
-		return super.serializer(object).exclude("perfis.authority");
+	protected String[] excludeProps() {
+		return new String[] {"password","perfis.authority"};
 	}
 	
 }

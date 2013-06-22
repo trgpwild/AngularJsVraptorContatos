@@ -5,13 +5,13 @@ import org.angular.model.Tarefa;
 import org.angular.repository.TarefaRepository;
 
 import br.com.caelum.vraptor.Consumes;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.serialization.Serializer;
 
 @Resource
 @Path("tarefas")
@@ -39,7 +39,7 @@ public class TarefaController extends Controller {
 	@Get
 	@Path("/{id}")
 	public void find(Long id) {
-		serializer(repository.find(id)).serialize();
+		serializer(repository.find(id),true).serialize();
 	}
 
 	@Post
@@ -58,23 +58,23 @@ public class TarefaController extends Controller {
 		result.nothing();
 	}
 
-	@Put
+	@Delete
 	@Path("/{tarefa.id}")
 	public void delete(Tarefa tarefa) {
 		repository.delete(tarefa);
 		result.nothing();
 	}
-	
+
 	@Override
-	protected Serializer serializer(Object object) {
-		return super.serializer(object).exclude(
+	protected String[] excludeProps() {
+		return new String[]{
 			"usuario.username",
 			"usuario.password",
 			"usuario.email",
 			"usuario.ativo",
 			"usuario.tries",
 			"usuario.perfis"
-		);
+		};
 	}
 
 }

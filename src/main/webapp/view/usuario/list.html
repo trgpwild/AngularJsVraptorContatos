@@ -11,7 +11,7 @@
 			</tr>
 		</table></td></tr>
 		<tr><td><div class="scroll" do-scroll="load()"><table width="99%">
-			<tr ng-repeat="usuario in usuarioList | filter:search | orderBy:'username'">
+			<tr ng-repeat="usuario in list | filter:search | orderBy:'username'">
 				<td>{{usuario.username}}</td>
 				<td>{{usuario.email}}</td>
 				<td width="10"><a href="#/usuario/edit/{{usuario.id}}"><i class="icon-pencil"></i></a></td>

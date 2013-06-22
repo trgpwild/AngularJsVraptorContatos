@@ -5,6 +5,7 @@ import org.angular.model.Contato;
 import org.angular.repository.ContatoRepository;
 
 import br.com.caelum.vraptor.Consumes;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -38,7 +39,7 @@ public class ContatoController extends Controller {
 	@Get
 	@Path("/{id}")
 	public void find(Long id) {
-		serializer(repository.find(id)).serialize();
+		serializer(repository.find(id),true).serialize();
 	}
 
 	@Post
@@ -57,7 +58,7 @@ public class ContatoController extends Controller {
 		result.nothing();
 	}
 
-	@Put
+	@Delete
 	@Path("/{contato.id}")
 	public void delete(Contato contato) {
 		repository.delete(contato);
