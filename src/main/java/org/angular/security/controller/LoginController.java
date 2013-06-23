@@ -3,6 +3,7 @@ package org.angular.security.controller;
 import org.angular.application.Controller;
 import org.angular.entity.Usuario;
 import org.angular.repository.UsuarioRepository;
+import org.angular.security.Hasher;
 import org.angular.security.entity.Login;
 import org.angular.security.entity.SecurityResponse;
 
@@ -34,7 +35,7 @@ public class LoginController extends Controller {
 		boolean authenticated = false; String message = "";
 		Usuario u = repository.getByUsernameAndPassword(
 			usuario.getUsername(), 
-			usuario.getPassword()
+			Hasher.get(usuario.getPassword())
 		);
 		if (u != null) {
 			login.setUsuario(u);

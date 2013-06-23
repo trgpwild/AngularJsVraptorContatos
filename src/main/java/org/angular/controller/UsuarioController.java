@@ -3,6 +3,7 @@ package org.angular.controller;
 import org.angular.application.Controller;
 import org.angular.entity.Usuario;
 import org.angular.repository.UsuarioRepository;
+import org.angular.security.Hasher;
 import org.angular.security.SecRole;
 
 import br.com.caelum.vraptor.Consumes;
@@ -48,6 +49,7 @@ public class UsuarioController extends Controller {
 	@Path({"","/"})
 	@Consumes("application/json")
 	public void insert(Usuario usuario) {
+		usuario.setPassword(Hasher.get(usuario.getPassword()));
 		repository.insert(usuario);
 		result.nothing();
 	}
@@ -56,6 +58,7 @@ public class UsuarioController extends Controller {
 	@Path("/{usuario.id}")
 	@Consumes("application/json")
 	public void update(Usuario usuario) {
+		usuario.setPassword(Hasher.get(usuario.getPassword()));
 		repository.update(usuario);
 		result.nothing();
 	}
