@@ -3,6 +3,9 @@ AngularJsVraptorContatos
 
 Aplicação exemplificando integração entre AngularJs e VRaptor com muitos recursos de ambas frameworks (Application integration between exemplifying and AngularJs VRaptor with many features of both frameworks)
 
+### Login: Username: admin & Password: 123
+### Login: Username: user & Password: 123
+
 	use contatos
 	
 	CREATE TABLE IF NOT EXISTS contato (
@@ -45,7 +48,7 @@ Aplicação exemplificando integração entre AngularJs e VRaptor com muitos rec
 	);
 	
 	INSERT INTO usuario (id, ativo, email, senha, tentativas_login, login) VALUES
-	(1, 1, 'admin@sharkness.org', 'F6E0A1E2AC41945A9AA7FF8A8AAA0CEBC12A3BCC981A929AD5CF810A090E11AE', 0, 'admin'),
+	(1, 1, 'admin@sharkness.org', 'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3', 0, 'admin'),
 	(2, 1, 'user@sharkness.org', 'A665A45920422F9D417E4867EFDC4FB8A04A1F3FFF1FA07E998E86F7F7A27AE3', 0, 'user');
 	
 	CREATE TABLE IF NOT EXISTS usuario_perfil (
