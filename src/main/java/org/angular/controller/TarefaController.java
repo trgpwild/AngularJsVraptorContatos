@@ -1,8 +1,9 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Tarefa;
+import org.angular.entity.Tarefa;
 import org.angular.repository.TarefaRepository;
+import org.angular.security.SecRole;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Delete;
@@ -15,6 +16,7 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 @Path("tarefas")
+@SecRole(roles={"ROLE_ADMIN"})
 public class TarefaController extends Controller {
 
 	private TarefaRepository repository;

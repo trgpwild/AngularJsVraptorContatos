@@ -1,8 +1,9 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Perfil;
+import org.angular.entity.Perfil;
 import org.angular.repository.PerfilRepository;
+import org.angular.security.SecRole;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Delete;
@@ -15,6 +16,7 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 @Path("perfis")
+@SecRole(roles={"ROLE_ADMIN"})
 public class PerfilController extends Controller {
 
 	private PerfilRepository repository;

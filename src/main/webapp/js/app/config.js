@@ -4,7 +4,8 @@ var limit = 10;
 
 var baseUrl = '/' + AppName;
 var homePage = '/' + AppName + '/';
-var loginPage = '/' + AppName + '/login.html';
+var loginUrl = '/' + AppName + '/authentication/login/';
+var logoutUrl = '/' + AppName + '/authentication/logout/';
 
 function string(val) {
 	return "" + val + "";

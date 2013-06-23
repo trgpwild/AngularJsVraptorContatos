@@ -32,7 +32,7 @@ App.factory('httpInterceptor', function ($q, $window) {
 	return function (promise) {
 		return promise.then(function (response) {
 			try {
-				if (response.data.status == 'error') {
+				if (response.data.authenticated == false) {
 					$('#loginModal').modal('show');
 					return $q.reject(response);
 				} else {

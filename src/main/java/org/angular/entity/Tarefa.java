@@ -1,4 +1,4 @@
-package org.angular.model;
+package org.angular.entity;
 
 import java.util.Calendar;
 

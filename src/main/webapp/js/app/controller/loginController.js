@@ -1,17 +1,32 @@
 var LoginController = function ($scope) {
 
-	$scope.authenticate = function () {
+	$scope.login = function () {
 		$.ajax({
 			type: "POST",
 			contentType: "application/json; charset=utf-8",
-			url: "api/login?ajax=true",
-			data: JSON.stringify({
-				user : $('#user').val(),
-				pass : $('#pass').val()
-		    }),
+			url: loginUrl,
+			data: JSON.stringify({usuario: {
+				username : $('#user').val(),
+				password : $('#pass').val()
+		    }}),
 			dataType: 'json',
 			success : function(data){
-				if (data.message == 'success') {
+				if (data.authenticated) {
+					window.location.href = homePage;
+				} else {
+					alert(data.message);
+				}
+			}
+		});
+	}
+	
+	$scope.logout = function(){
+		$.ajax({
+			type: "GET",
+			url: logoutUrl,
+			dataType: 'json',
+			success : function(data){
+				if (data.authenticated == false) {
 					window.location.href = homePage;
 				} else {
 					alert(data.message);

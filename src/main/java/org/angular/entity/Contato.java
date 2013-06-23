@@ -1,4 +1,4 @@
-package org.angular.model;
+package org.angular.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

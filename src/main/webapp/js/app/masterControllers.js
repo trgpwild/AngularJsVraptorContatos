@@ -4,8 +4,10 @@ masterRead = function($scope, $location, Resource) {
 	$scope.load = function() {
 		Resource.query({param1: string(start), param2: limit}, function (res) {
 			$.each(res, function(index, item) {
-				$scope.list.push(item);
-				start++;
+				if (item.id) {
+					$scope.list.push(item);
+					start++;
+				}
 			});
 		});
 	}

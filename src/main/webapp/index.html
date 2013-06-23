@@ -7,7 +7,7 @@
 	<meta name="description" content="AngularJsContatos">
 	<meta name="author" content="Thiago Roberto Gaspar Pinto - github.com/trgpwild">
 
-	<title>AngularJsContatos</title>
+	<title>Contatos</title>
 
 	<link href="css/jquery-ui.css" rel="stylesheet">
 	<link href="css/bootstrap.css" rel="stylesheet">
@@ -65,24 +65,24 @@
 	<script src="js/app/directives.js"></script>
 
 </head>
-<body>
+<body ng-controller="LoginController">
 
 	<div id="main-menu" class="navbar">
 		<div class="navbar-inner">
-			<a class="brand" href="#/">AngularJsContatos</a>
+			<a class="brand" href="#/">Contatos</a>
 			<ul class="nav">
 				<li><a href="#/usuario/">Usuarios</a></li>
 				<li><a href="#/perfil/">Perfis</a></li>
 				<li><a href="#/contato/">Contatos</a></li>
 				<li><a href="#/tarefa/">Tarefas</a></li>
 			</ul>
-			<a class="brand" href='api/logout'>Logout</a>
+			<a class="brand" ng-click="logout()">Logout</a>
 		</div>
 	</div>
 	
 	<div class="container" ng-view></div>
 	
-	<div id="loginModal" ng-controller="LoginController" class="modal hide fade" tabindex="-1">
+	<div id="loginModal" class="modal hide fade" tabindex="-1">
         <div class="modal-header"><h4>Login</h4></div>
         <div class="modal-body">
 			<table>
@@ -90,7 +90,7 @@
 				<tr><td>Senha:</td><td><input id="pass" type='password' name='pass' /></td></tr>
 			</table>
         </div>
-        <div class="modal-footer"><button class="btn" ng-click="authenticate()">Login</button></div>
+        <div class="modal-footer"><button class="btn" ng-click="login()">Login</button></div>
 	</div>
 	<script type="text/javascript">$('#loginModal').modal('hide');</script>
 	

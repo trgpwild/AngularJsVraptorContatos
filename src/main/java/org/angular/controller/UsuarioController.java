@@ -1,8 +1,9 @@
 package org.angular.controller;
 
 import org.angular.application.Controller;
-import org.angular.model.Usuario;
+import org.angular.entity.Usuario;
 import org.angular.repository.UsuarioRepository;
+import org.angular.security.SecRole;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Delete;
@@ -15,6 +16,7 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 @Path("usuarios")
+@SecRole(roles={"ROLE_ADMIN"})
 public class UsuarioController extends Controller {
 
 	private UsuarioRepository repository;

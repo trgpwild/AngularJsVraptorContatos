@@ -3,7 +3,7 @@ package org.angular.repository.impl;
 import javax.persistence.EntityManager;
 
 import org.angular.application.RepositoryImpl;
-import org.angular.model.Perfil;
+import org.angular.entity.Perfil;
 import org.angular.repository.PerfilRepository;
 
 import br.com.caelum.vraptor.ioc.Component;
