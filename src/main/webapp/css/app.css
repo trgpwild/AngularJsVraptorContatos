@@ -1,0 +1,21 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#main-menu {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-justify-content: space-around;
+}
+.navbar-inner {
+	min-width: 95%;
+}
+.scroll {
+	width: 100%;
+	height: 250px;
+	overflow: scroll;
+	overflow-x: hidden;
+}

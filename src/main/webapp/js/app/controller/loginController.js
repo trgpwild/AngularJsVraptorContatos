@@ -14,6 +14,7 @@ var LoginController = function ($scope) {
 				if (data.authenticated) {
 					window.location.href = homePage;
 				} else {
+					$('#loginModal').modal('hide');
 					alert(data.message);
 				}
 			}

@@ -22,6 +22,7 @@ masterCreate = function($scope, $location, Resource, root, emptyObj) {
 		});
 	}
 }
+
 masterUpdate = function($scope, $routeParams, $window, $location, Resource, root, actionUpdate) {
 	
 	Resource.get({param1: $routeParams.id}, function(res) {
@@ -37,13 +38,32 @@ masterUpdate = function($scope, $routeParams, $window, $location, Resource, root
 	}
 
 	$scope.destroy = function() {
-		var confirm = $window.confirm('Are you sure?');
-		if(confirm) {
-			$scope.model.$delete({param1: $routeParams.id}, function(res) {
-				if (actionUpdate) actionUpdate('delete', $routeParams.id);
-				$location.path(root);
-			});
-		}
+		deleteConfirm('Are you sure?', $location, $scope, $routeParams, root, actionUpdate)
 	}
 	
+}
+
+deleteConfirm = function(message, $location, $scope, $routeParams, root, actionUpdate) {
+	"use strict"
+	$(document.createElement('div')).attr({
+		title : 'Warning',
+		'class' : 'alert'
+	}).html(message).dialog({
+		width : 'auto',
+		modal : true,
+		resizable : false,
+		buttons : {
+			"Cancelar" : function() {
+				$(this).remove();
+				return false;
+			},
+			"Ok" : function() {
+				$(this).remove();
+				$scope.model.$delete({param1: $routeParams.id}, function(res) {
+					if (actionUpdate) actionUpdate('delete', $routeParams.id);
+					$location.path(root);
+				});
+			}
+		}
+	});
 }
