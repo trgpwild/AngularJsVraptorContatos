@@ -1,4 +1,4 @@
-var App = angular.module('AngularJsContatosApp', ['AngularContatosServices','ui.bootstrap','ui.date']);
+var App = angular.module('AngularJsContatosApp', ['rest.service','ui.bootstrap','ui.date','ui.i18n']);
 
 App.config(function($routeProvider, $httpProvider) {
 	
@@ -28,7 +28,7 @@ App.config(function($routeProvider, $httpProvider) {
 		
 });
 
-App.factory('httpInterceptor', function ($q, $window) {
+App.factory('httpInterceptor', ['$q','$window', function ($q, $window) {
 	return function (promise) {
 		return promise.then(function (response) {
 			try {
@@ -46,4 +46,4 @@ App.factory('httpInterceptor', function ($q, $window) {
 			return $q.reject(response);
 		});
 	};
-});
+}]);

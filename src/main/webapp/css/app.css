@@ -19,3 +19,7 @@ body {
 	overflow: scroll;
 	overflow-x: hidden;
 }
+img {
+	margin-top: 9px;
+	padding: 5px;
+}

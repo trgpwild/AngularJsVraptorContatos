@@ -1,10 +1,10 @@
-<h2 ng-show="contato.id">Edit Contato</h2>
-<h2 ng-hide="contato.id">New Contato</h2>
+<h2 ng-show="model.contato.id">{{'EDIT_CONTACT'|i18n}}</h2>
+<h2 ng-hide="model.contato.id">{{'NEW_CONTACT'|i18n}}</h2>
 <form name="myForm">
 	<div class="control-group" ng-class="{error: myForm.nome.$invalid}">
-		<label>Nome</label><input type="text" name="nome" ng-model="model.contato.nome" required><span ng-show="myForm.nome.$error.required" class="help-inline">Required</span>
+		<label>{{'contato.nome'|i18n}}</label><input type="text" name="nome" ng-model="model.contato.nome" required><span ng-show="myForm.nome.$error.required" class="help-inline">{{'REQUIRED'|i18n}}</span>
 	</div>
-	<label>Description</label> <input type="text" name="endereco" ng-model="model.contato.endereco"></input> <br> <a href="#/contato/" class="btn">Cancel</a>
-	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-	<button ng-click="destroy()" ng-show="model.contato.id" class="btn btn-danger">Delete</button>
+	<label>{{'contato.endereco'|i18n}}</label> <input type="text" name="endereco" ng-model="model.contato.endereco"></input> <br> <a href="#/contato/" class="btn">{{'CANCEL'|i18n}}</a>
+	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">{{'SAVE'|i18n}}</button>
+	<button ng-click="destroy()" ng-show="model.contato.id" class="btn btn-danger">{{'DELETE'|i18n}}</button>
 </form>

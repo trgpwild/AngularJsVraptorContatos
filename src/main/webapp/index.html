@@ -7,8 +7,6 @@
 	<meta name="description" content="AngularJsContatos">
 	<meta name="author" content="Thiago Roberto Gaspar Pinto - github.com/trgpwild">
 
-	<title>Contatos</title>
-
 	<link href="css/jquery-ui.css" rel="stylesheet">
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/app.css" rel="stylesheet">
@@ -25,14 +23,15 @@
 	<script src="js/lib/bootstrap/bootstrap-2.3.2.min.js"></script>
 	<script src="js/lib/angular/angularjs-1.0.1.min.js"></script>
 	<script src="js/lib/angular/angular-resource-1.0.1.min.js"></script>
+	<script src="js/lib/angular/angular-localization.js"></script>
 	<script src="js/lib/angular/ui/ui-bootstrap-0.3.0.min.js"></script>
 	<script src="js/lib/angular/ui/date.js"></script>
 
-	<script src="js/app/config.js"></script>
+	<script src="js/app/base.js"></script>
 	<script src="js/app/services.js"></script>
 	<script src="js/app/masterControllers.js"></script>
 
-	<script src="js/app/controller/loginController.js"></script>
+	<script src="js/app/controller/mainController.js"></script>
 	<script src="js/app/controller/homeController.js"></script>
 	<script src="js/app/controller/usuarioController.js"></script>
 	<script src="js/app/controller/perfilController.js"></script>
@@ -42,30 +41,32 @@
 	<script src="js/app/main.js"></script>
 	<script src="js/app/directives.js"></script>
 
+	<title>{{'APPLICATION_NAME'|i18n}}</title>
+
 </head>
-<body ng-controller="LoginController">
+<body ng-controller="MainController">
 
 	<div id="main-menu" class="navbar">
 		<div class="navbar-inner">
-			<a class="brand" href="#/">Contatos</a>
+			<a class="brand" href="#/">{{'APPLICATION_NAME'|i18n}}</a>
 			<ul class="nav">
-				<li><a href="#/usuario/">Usuarios</a></li>
-				<li><a href="#/perfil/">Perfis</a></li>
-				<li><a href="#/contato/">Contatos</a></li>
-				<li><a href="#/tarefa/">Tarefas</a></li>
+				<li><a href="#/usuario/">{{'USERS'|i18n}}</a></li>
+				<li><a href="#/perfil/">{{'ROLES'|i18n}}</a></li>
+				<li><a href="#/contato/">{{'CONTACTS'|i18n}}</a></li>
+				<li><a href="#/tarefa/">{{'TASKS'|i18n}}</a></li>
 			</ul>
-			<a class="brand" ng-click="logout()">Logout</a>
+			<a class="brand" ng-click="logout()">{{'LOGOUT'|i18n}}</a>
 		</div>
 	</div>
 	
 	<div class="container" ng-view></div>
 	
 	<div id="loginModal" class="modal hide fade" tabindex="-1">
-        <div class="modal-header"><h4>Login</h4></div>
+        <div class="modal-header"><h4>{{'AUTH_TITLE'|i18n}}</h4></div>
         <div class="modal-body">
 			<table>
-				<tr><td>Login:</td><td><input id="user" type='text' name='user' /></td></tr>
-				<tr><td>Senha:</td><td><input id="pass" type='password' name='pass' /></td></tr>
+				<tr><td>{{'USERNAME'|i18n}}:</td><td><input id="user" type='text' name='user' /></td></tr>
+				<tr><td>{{'PASSWORD'|i18n}}:</td><td><input id="pass" type='password' name='pass' /></td></tr>
 			</table>
         </div>
         <div class="modal-footer"><button class="btn" ng-click="login()">Login</button></div>

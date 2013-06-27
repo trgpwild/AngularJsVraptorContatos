@@ -1,10 +1,10 @@
-<h2 ng-show="perfil.id">Edit Perfil</h2>
-<h2 ng-hide="perfil.id">New Perfil</h2>
+<h2 ng-show="model.perfil.id">{{'EDIT_ROLE'|i18n}}</h2>
+<h2 ng-hide="model.perfil.id">{{'NEW_ROLE'|i18n}}</h2>
 <form name="myForm">
 	<div class="control-group" ng-class="{error: myForm.authority.$invalid}">
-		<label>Nome</label><input type="text" name="authority" ng-model="model.perfil.authority" required><span ng-show="myForm.authority.$error.required" class="help-inline">Required</span>
+		<label>{{'perfil.authority'|i18n}}</label><input type="text" name="authority" ng-model="model.perfil.authority" required><span ng-show="myForm.authority.$error.required" class="help-inline">{{'REQUIRED'|i18n}}</span>
 	</div>
-	<br> <a href="#/perfil/" class="btn">Cancel</a>
-	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-	<button ng-click="destroy()" ng-show="model.perfil.id" class="btn btn-danger">Delete</button>
+	<br> <a href="#/perfil/" class="btn">{{'CANCEL'|i18n}}</a>
+	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">{{'SAVE'|i18n}}</button>
+	<button ng-click="destroy()" ng-show="model.perfil.id" class="btn btn-danger">{{'DELETE'|i18n}}</button>
 </form>

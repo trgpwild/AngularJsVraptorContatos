@@ -27,6 +27,6 @@ window.alert = function(message) {
 		draggable : true,
 		modal : true,
 		resizable : false,
-		width : 'auto'
+		width : 200
 	});
 };

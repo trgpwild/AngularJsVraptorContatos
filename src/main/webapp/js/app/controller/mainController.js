@@ -1,4 +1,4 @@
-var LoginController = function ($scope) {
+var MainController = function ($scope) {
 
 	$scope.login = function () {
 		$.ajax({

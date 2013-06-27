@@ -1,18 +1,18 @@
-<h2 ng-show="model.tarefa.id">Edit Tarefa</h2>
-<h2 ng-hide="model.tarefa.id">New Tarefa</h2>
+<h2 ng-show="model.tarefa.id">{{'EDIT_TASK'|i18n}}</h2>
+<h2 ng-hide="model.tarefa.id">{{'NEW_TASK'|i18n}}</h2>
 <form name="myForm">
 	<div class="control-group" ng-class="{error: myForm.nome.$invalid}">
-		<label>Nome</label><input type="text" name="nome" ng-model="model.tarefa.nome" required><span ng-show="myForm.authority.$error.required" class="help-inline">Required</span>
+		<label>{{'tarefa.nome'|i18n}}</label><input type="text" name="nome" ng-model="model.tarefa.nome" required><span ng-show="myForm.authority.$error.required" class="help-inline">{{'REQUIRED'|i18n}}</span>
 	</div>
 	<div class="control-group" ng-class="{error: myForm.nome.$invalid}">
-		<label>Data Execução</label><input type="text" name="dataExecucao" ui-date ui-date-format="yy-mm-dd" ng-model="model.tarefa.dataExecucao" required><span ng-show="myForm.dataExecucao.$error.required" class="help-inline">Required</span>
+		<label>{{'tarefa.execucao'|i18n}}</label><input type="text" name="dataExecucao" ui-date ui-date-format="yy-mm-dd" ng-model="model.tarefa.dataExecucao" required><span ng-show="myForm.dataExecucao.$error.required" class="help-inline">{{'REQUIRED'|i18n}}</span>
 	</div>
 	<div class="control-group" ng-class="{error: myForm.nome.$invalid}">
-		<label>Usuario</label>
+		<label>{{'tarefa.usuario'|i18n}}</label>
 		<select id="usuarios" ng-model="model.tarefa.usuario" ng-options="u.username for u in usuarios" required></select>
-		<span ng-show="myForm.usuario.$error.required" class="help-inline">Required</span>
+		<span ng-show="myForm.usuario.$error.required" class="help-inline">{{'REQUIRED'|i18n}}</span>
 	</div>
-	<br> <a href="#/tarefa/" class="btn">Cancel</a>
-	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">Save</button>
-	<button ng-click="destroy()" ng-show="model.tarefa.id" class="btn btn-danger">Delete</button>
+	<br> <a href="#/tarefa/" class="btn">{{'CANCEL'|i18n}}</a>
+	<button ng-click="save()" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary">{{'SAVE'|i18n}}</button>
+	<button ng-click="destroy()" ng-show="model.tarefa.id" class="btn btn-danger">{{'DELETE'|i18n}}</button>
 </form>

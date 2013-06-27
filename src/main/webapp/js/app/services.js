@@ -1,4 +1,4 @@
-var angularContatosServices = angular.module('AngularContatosServices', ['ngResource']);
+var angularContatosServices = angular.module('rest.service', ['ngResource']);
 
 var configUrl = function (model) {
 	return baseUrl + '/' + model + '/:param1/:param2';
