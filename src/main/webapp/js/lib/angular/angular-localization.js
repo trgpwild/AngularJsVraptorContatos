@@ -1,5 +1,5 @@
 'use_strict';
-angular.module('ui.i18n', []).factory('localize', ['$http', '$rootScope', '$window', function($http, $rootScope, $window) {
+angular.module('ui.i18n', []).factory('localize', ['$http', '$rootScope', '$location', '$window', function($http, $rootScope, $location, $window) {
 var localize = {
     language : $window.navigator.userLanguage || $window.navigator.language,
     dictionary : undefined,
@@ -10,11 +10,13 @@ var localize = {
         $rootScope.$broadcast('localizeResourcesUpdates');
     },
     initLocalizedResources : function () {
+    	var languageParam = $location.search()['language'];
+    	if (languageParam) localize.language = languageParam;
         var url = 'i18n/' + localize.language + '.json';
         $http({ method:"GET", url:url, cache:false })
             .success(localize.successCallback)
             .error(function () {
-                var url = 'i18n/default.json';
+                var url = 'i18n/' + languageDefault + '.json';
                 $http({ method:"GET", url:url, cache:false }).success(localize.successCallback);
             });
     },

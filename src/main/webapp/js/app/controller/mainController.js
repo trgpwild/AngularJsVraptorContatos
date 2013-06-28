@@ -1,4 +1,4 @@
-var MainController = function ($scope) {
+var MainController = function ($scope, $location) {
 
 	$scope.login = function () {
 		$.ajax({
@@ -34,6 +34,11 @@ var MainController = function ($scope) {
 				}
 			}
 		});
+	}
+	
+	$scope.language = function(language) {
+		window.location.href="#?language="+language;
+		window.location.reload();
 	}
 
 };

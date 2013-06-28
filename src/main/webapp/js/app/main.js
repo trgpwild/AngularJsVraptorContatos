@@ -42,7 +42,6 @@ App.factory('httpInterceptor', ['$q','$window', function ($q, $window) {
 				alert(e.message);
 			}
 		}, function (response) {
-			alert('Warning: Error not Expected!');
 			return $q.reject(response);
 		});
 	};

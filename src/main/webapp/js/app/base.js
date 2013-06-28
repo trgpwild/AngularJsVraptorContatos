@@ -7,6 +7,8 @@ var homePage = '/' + AppName + '/';
 var loginUrl = '/' + AppName + '/authentication/login/';
 var logoutUrl = '/' + AppName + '/authentication/logout/';
 
+var languageDefault = "pt-BR";
+
 function string(val) {
 	return "" + val + "";
 }
@@ -26,7 +28,6 @@ window.alert = function(message) {
 		},
 		draggable : true,
 		modal : true,
-		resizable : false,
-		width : 200
+		resizable : false
 	});
 };
