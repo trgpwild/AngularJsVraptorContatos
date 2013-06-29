@@ -12,7 +12,7 @@ var MainController = function ($scope, $location) {
 			dataType: 'json',
 			success : function(data){
 				if (data.authenticated) {
-					window.location.href = homePage;
+					window.location.href = baseUrl;
 				} else {
 					$('#loginModal').modal('hide');
 					alert(data.message);
@@ -28,7 +28,7 @@ var MainController = function ($scope, $location) {
 			dataType: 'json',
 			success : function(data){
 				if (data.authenticated == false) {
-					window.location.href = homePage;
+					window.location.href = baseUrl;
 				} else {
 					alert(data.message);
 				}

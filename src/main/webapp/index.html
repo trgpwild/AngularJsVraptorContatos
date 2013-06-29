@@ -15,7 +15,17 @@
 	<!--[if lt IE 9]>
 		<script src="js/lib/compatibility/html5.js"></script>
 		<script src="js/lib/compatibility/json.js"></script>
-	<![endif]-->  
+		<script>
+			document.createElement('ng-include');
+			document.createElement('ng-pluralize');
+			document.createElement('ng-view');
+ 
+			// Optionally these for CSS
+			document.createElement('ng:include');
+			document.createElement('ng:pluralize');
+			document.createElement('ng:view');
+		</script>
+    <![endif]-->
 
 	<script src="js/lib/jquery/jquery-1.10.1.min.js"></script>
 	<script src="js/lib/jquery/jquery-migrate-1.2.1.min.js"></script>
@@ -41,14 +51,14 @@
 	<script src="js/app/main.js"></script>
 	<script src="js/app/directives.js"></script>
 
-	<title>{{'APPLICATION_NAME'|i18n}}</title>
+	<title>AngularJS & VRaptor</title>
 
 </head>
 <body ng-controller="MainController">
 
 	<div id="main-menu" class="navbar">
 		<div class="navbar-inner">
-			<a class="brand" href="#/">{{'APPLICATION_NAME'|i18n}}</a>
+			<a class="brand" href="#/">AngularJS & VRaptor</a>
 			<ul class="nav">
 				<li><a href="#/usuario/">{{'USERS'|i18n}}</a></li>
 				<li><a href="#/perfil/">{{'ROLES'|i18n}}</a></li>
