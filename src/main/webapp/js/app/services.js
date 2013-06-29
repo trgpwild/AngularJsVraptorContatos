@@ -12,22 +12,22 @@ var values = function() {
 	return {'update': {'method': 'PUT'}};
 }
 
-angularContatosServices.factory('UsuarioResource', function($resource) {
+angularContatosServices.factory('UsuarioResource', ['$resource',function($resource) {
 	var api = $resource(configUrl('usuarios'), params(), values());
     return api;
-});
+}]);
 
-angularContatosServices.factory('PerfilResource', function($resource) {
+angularContatosServices.factory('PerfilResource', ['$resource',function($resource) {
 	var api = $resource(configUrl('perfis'), params(), values());
     return api;
-});
+}]);
 
-angularContatosServices.factory('ContatoResource', function($resource) {
+angularContatosServices.factory('ContatoResource', ['$resource',function($resource) {
 	var api = $resource(configUrl('contatos'), params(), values());
     return api;
-});
+}]);
 
-angularContatosServices.factory('TarefaResource', function($resource) {
+angularContatosServices.factory('TarefaResource', ['$resource',function($resource) {
 	var api = $resource(configUrl('tarefas'), params(), values());
     return api;
-});
+}]);

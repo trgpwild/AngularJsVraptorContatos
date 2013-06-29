@@ -17,12 +17,14 @@ UsuarioController = (function() {
 
 	UsuarioController.prototype.read = function($scope, $location, UsuarioResource) {
 		masterRead($scope, $location, UsuarioResource);
-	}
+	};
+	UsuarioController.prototype.read.$inject = ['$scope', '$location', 'UsuarioResource'];
 
 	UsuarioController.prototype.create = function($scope, $location, UsuarioResource, PerfilResource) {
 		PerfilResource.query(function (res) { $scope.roles = res; });
 		masterCreate($scope, $location, UsuarioResource, root, emptyObj);
-	}
+	};
+	UsuarioController.prototype.create.$inject = ['$scope', '$location', 'UsuarioResource', 'PerfilResource'];
 
 	UsuarioController.prototype.update = function($scope, $routeParams, $window, $location, UsuarioResource, PerfilResource) {
 		masterUpdate($scope, $routeParams, $window, $location, UsuarioResource, root, function(action) {
@@ -42,7 +44,8 @@ UsuarioController = (function() {
 				});
 			}
 		});
-	}
+	};
+	UsuarioController.prototype.update.$inject = ['$scope', '$routeParams', '$window', '$location', 'UsuarioResource', 'PerfilResource'];
 
 	return UsuarioController;
   

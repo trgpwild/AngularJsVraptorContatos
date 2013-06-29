@@ -6,3 +6,4 @@ var homeController = function ($scope, $location, ContatoResource) {
 		});
 	});
 };
+homeController.$inject = ['$scope', '$location', 'ContatoResource'];

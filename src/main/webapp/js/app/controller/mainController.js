@@ -1,37 +1,28 @@
-var MainController = function ($scope, $location) {
+var MainController = function ($scope, $http, $location) {
 
 	$scope.login = function () {
-		$.ajax({
-			type: "POST",
-			contentType: "application/json; charset=utf-8",
-			url: loginUrl,
-			data: JSON.stringify({usuario: {
-				username : $('#user').val(),
-				password : $('#pass').val()
-		    }}),
-			dataType: 'json',
-			success : function(data){
-				if (data.authenticated) {
-					window.location.href = baseUrl;
-				} else {
-					$('#loginModal').modal('hide');
-					alert(data.message);
-				}
+
+		$http.post(loginUrl, {usuario: {
+			username : $('#user').val(),
+			password : $('#pass').val()
+	    }}).success(function(data) {
+			if (data.authenticated) {
+				$location.path(baseUrl);
+				$('#loginModal').modal('hide');
+			} else {
+				$('#loginModal').modal('hide');
+				alert(data.message);
 			}
 		});
+		
 	}
 	
 	$scope.logout = function(){
-		$.ajax({
-			type: "GET",
-			url: logoutUrl,
-			dataType: 'json',
-			success : function(data){
-				if (data.authenticated == false) {
-					window.location.href = baseUrl;
-				} else {
-					alert(data.message);
-				}
+		$http.get(logoutUrl).success(function(data) {
+			if (data.authenticated == false) {
+				$location.path(baseUrl);
+			} else {
+				alert(data.message);
 			}
 		});
 	}
@@ -42,3 +33,4 @@ var MainController = function ($scope, $location) {
 	}
 
 };
+MainController.$inject = ['$scope', '$http', '$location'];

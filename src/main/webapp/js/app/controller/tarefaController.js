@@ -9,12 +9,14 @@ TarefaController = (function() {
 
 	TarefaController.prototype.read = function($scope, $location, TarefaResource) {
 		masterRead($scope, $location, TarefaResource);
-	}
+	};
+	TarefaController.prototype.read.$inject = ['$scope', '$location', 'TarefaResource'];
 
 	TarefaController.prototype.create = function($scope, $location, TarefaResource, UsuarioResource) {
 		UsuarioResource.query(function (res) { $scope.usuarios = res; });
 		masterCreate($scope, $location, TarefaResource, root, emptyObj);
-	}
+	};
+	TarefaController.prototype.create.$inject = ['$scope', '$location', 'TarefaResource', 'UsuarioResource'];
 
 	TarefaController.prototype.update = function($scope, $routeParams, $window, $location, TarefaResource, UsuarioResource) {
 		masterUpdate($scope, $routeParams, $window, $location, TarefaResource, root, function(action) {
@@ -30,7 +32,8 @@ TarefaController = (function() {
 				});
 			}
 		});
-	}
+	};
+	TarefaController.prototype.update.$inject = ['$scope', '$routeParams', '$window', '$location', 'TarefaResource', 'UsuarioResource'];
 
 	return TarefaController;
   

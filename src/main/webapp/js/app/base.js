@@ -1,10 +1,19 @@
+/**
+ * Configuration
+ */
 var limit = 10;
+var languageDefault = "pt-BR";
 
+/**
+ * Setup
+ */
 var baseUrl = './';
 var loginUrl = baseUrl + 'authentication/login/';
 var logoutUrl = baseUrl + 'authentication/logout/';
 
-var languageDefault = "pt-BR";
+/**
+ * Basic Functions
+ */
 
 function string(val) {
 	return "" + val + "";

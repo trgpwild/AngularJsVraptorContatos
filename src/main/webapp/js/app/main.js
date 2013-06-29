@@ -1,6 +1,6 @@
 var App = angular.module('AngularJsContatosApp', ['rest.service','ui.bootstrap','ui.date','ui.i18n']);
 
-App.config(function($routeProvider, $httpProvider) {
+App.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvider) {
 	
 	$routeProvider
 		
@@ -26,7 +26,7 @@ App.config(function($routeProvider, $httpProvider) {
 	
 	$httpProvider.responseInterceptors.push('httpInterceptor');
 		
-});
+}]);
 
 App.factory('httpInterceptor', ['$q','$window', function ($q, $window) {
 	return function (promise) {
