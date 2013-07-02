@@ -1,4 +1,4 @@
-var App = angular.module('AngularJsContatosApp', ['rest.service','ui.bootstrap','ui.date','ui.i18n']);
+var App = angular.module('AngularJsContatosApp', ['rest.service','ui.bootstrap','ui.date','localization']);
 
 App.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvider) {
 	

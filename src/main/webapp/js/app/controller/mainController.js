@@ -1,4 +1,4 @@
-var MainController = function ($scope, $http, $location) {
+var MainController = function ($scope, $http, $location, localize) {
 
 	$scope.login = function () {
 
@@ -27,10 +27,9 @@ var MainController = function ($scope, $http, $location) {
 		});
 	}
 	
-	$scope.language = function(language) {
-		window.location.href="#?language="+language;
-		window.location.reload();
+	$scope.setLocale = function(language) {
+		localize.setLanguage(language);
 	}
 
 };
-MainController.$inject = ['$scope', '$http', '$location'];
+MainController.$inject = ['$scope', '$http', '$location', 'localize'];
