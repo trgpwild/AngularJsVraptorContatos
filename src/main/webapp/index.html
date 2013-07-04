@@ -77,12 +77,12 @@
 	
 	<div class="container" ng-view></div>
 	
-	<div id="loginModal" class="modal hide fade" tabindex="-1">
+	<div id="loginModal" class="modal hide fade" tabindex="-1" ng-enter="login()">
         <div class="modal-header"><h4>{{'AUTH_TITLE'|i18n}}</h4></div>
         <div class="modal-body">
 			<table>
-				<tr><td>{{'USERNAME'|i18n}}:</td><td><input id="user" type='text' name='user' /></td></tr>
-				<tr><td>{{'PASSWORD'|i18n}}:</td><td><input id="pass" type='password' name='pass' /></td></tr>
+				<tr><td>{{'USERNAME'|i18n}}:</td><td><input id="user" type='text' name='user'/></td></tr>
+				<tr><td>{{'PASSWORD'|i18n}}:</td><td><input id="pass" type='password' name='pass'/></td></tr>
 			</table>
 			<hr/>
 			<p><b>Login</b>: admin <b>Password</b>: 123 <b>|</b> <b>Login</b>: user <b>Password</b>:123</p>
