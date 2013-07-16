@@ -31,5 +31,10 @@ var MainController = function ($scope, $http, $location, localize) {
 		localize.setLanguage(language);
 	}
 
+	$scope.navClass = function(page) {
+		var currentRoute = $location.path().substring(1).replace('/','') || 'home';
+		return page === currentRoute ? 'active' : '';
+	};
+
 };
 MainController.$inject = ['$scope', '$http', '$location', 'localize'];

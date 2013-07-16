@@ -62,10 +62,10 @@
 		<div class="navbar-inner">
 			<a class="brand" href="#/">AngularJS & VRaptor</a>
 			<ul class="nav">
-				<li><a href="#/usuario/">{{'USERS'|i18n}}</a></li>
-				<li><a href="#/perfil/">{{'ROLES'|i18n}}</a></li>
-				<li><a href="#/contato/">{{'CONTACTS'|i18n}}</a></li>
-				<li><a href="#/tarefa/">{{'TASKS'|i18n}}</a></li>
+				<li ng-class="navClass('usuario')"><a href="#/usuario/">{{'USERS'|i18n}}</a></li>
+				<li ng-class="navClass('perfil')"><a href="#/perfil/">{{'ROLES'|i18n}}</a></li>
+				<li ng-class="navClass('contato')"><a href="#/contato/">{{'CONTACTS'|i18n}}</a></li>
+				<li ng-class="navClass('tarefa')"><a href="#/tarefa/">{{'TASKS'|i18n}}</a></li>
 			</ul>
 			<a class="brand" ng-click="logout()">{{'LOGOUT'|i18n}}</a>
 			<ul class="nav pull-right">
