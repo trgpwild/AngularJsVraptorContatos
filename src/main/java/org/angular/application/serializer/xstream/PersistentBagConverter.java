@@ -7,6 +7,13 @@ import com.thoughtworks.xstream.converters.collections.CollectionConverter;
 
 import br.com.caelum.vraptor.ioc.Component;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que registra o mapeamento específico do xtream para serialização de uma collection
+ *
+ */
 @Component
 public class PersistentBagConverter extends CollectionConverter {
 

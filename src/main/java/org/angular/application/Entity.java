@@ -6,6 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Entidade genérica que contém todas as coisas básicas para um objeto a ser persistido em banco de dados
+ *
+ */
 @MappedSuperclass
 @SuppressWarnings("serial")
 public class Entity implements Serializable {

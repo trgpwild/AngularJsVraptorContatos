@@ -8,6 +8,17 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+/**
+ * 
+ * @author trgp
+ *
+ * @param <Entity>
+ * @param <Id>
+ * 
+ * Classe que implementa as operações mais básicas com o banco de dados usando hibernate e sem tocar diretamente no sql nativo, 
+ * isso se refere ao padrão de projeto Repository que será melhor explicado nas interfaces específicas
+ * 
+ */
 @SuppressWarnings("unchecked")
 public abstract class RepositoryImpl<T extends Entity, I extends Serializable> {
 	

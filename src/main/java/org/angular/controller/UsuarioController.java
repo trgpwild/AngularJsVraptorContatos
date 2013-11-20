@@ -15,9 +15,18 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Controller da entidade Usuario para crud utilizando restful
+ *
+ * Perceba que a anotação @Consumes é utilizada pois a camada da view envia o objeto em formato json e o vraptor se encarrega de transformar em objeto
+ *
+ */
 @Resource
 @Path("usuarios")
-@SecRole(roles={"ROLE_ADMIN"})
+@SecRole(roles={"ROLE_ADMIN"}) //Configuração de permissão para a role de admin
 public class UsuarioController extends Controller {
 
 	private UsuarioRepository repository;

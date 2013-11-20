@@ -14,6 +14,13 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que define recurso público para logar e deslogar da aplicação
+ *
+ */
 @Resource
 @Path("authentication")
 public class LoginController extends Controller {

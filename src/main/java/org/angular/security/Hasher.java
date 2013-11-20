@@ -2,6 +2,13 @@ package org.angular.security;
 
 import java.security.MessageDigest;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que se encarrega de fazer o parse da palavra usando hash encode
+ * 
+ */
 public class Hasher {
 
 	public static String get(String msg) {

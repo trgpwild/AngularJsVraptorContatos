@@ -6,6 +6,13 @@ import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.Container;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que registra o componente de deserialização do vraptor: GsonDeserializer
+ *
+ */
 @Component  
 @ApplicationScoped  
 public class CustomDeserializers extends DefaultDeserializers {  

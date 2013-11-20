@@ -11,6 +11,13 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class ContatoRepositoryImpl extends RepositoryImpl<Contato, Long> implements ContatoRepository {
 
+	/**
+	 * 
+	 * @param entityManager
+	 * 
+	 * Propriedade usando a injeção de dependência do vraptor
+	 * 
+	 */
 	ContatoRepositoryImpl(EntityManager entityManager) {
 		super(entityManager);
 	}

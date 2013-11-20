@@ -18,6 +18,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe criada para fazer a conversão de data de forma específica pois o formato padrão não era o mais adequado para a view.
+ *
+ */
 @Component
 public class CalendarGsonDeserializer implements JsonDeserializer<Calendar> {
 

@@ -16,6 +16,13 @@ import br.com.caelum.vraptor.interceptor.Interceptor;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 import br.com.caelum.vraptor.view.Results;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Interceptador que contém a lógica de segurança da aplicação
+ *
+ */
 @Intercepts
 public class SecurityInterceptor implements Interceptor {
 
@@ -60,6 +67,9 @@ public class SecurityInterceptor implements Interceptor {
 		}
 	}
 
+	/**
+	 * Método que define que somente os recursos anotados com @SecRole serão interceptados
+	 */
 	@Override
 	public boolean accepts(ResourceMethod method) {
 		return method.getMethod().isAnnotationPresent(SecRole.class)

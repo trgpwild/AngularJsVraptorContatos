@@ -11,6 +11,13 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class TarefaRepositoryImpl extends RepositoryImpl<Tarefa, Long> implements TarefaRepository {
 
+	/**
+	 * 
+	 * @param entityManager
+	 * 
+	 * Propriedade usando a injeção de dependência do vraptor
+	 * 
+	 */
 	TarefaRepositoryImpl(EntityManager entityManager) {
 		super(entityManager);
 	}

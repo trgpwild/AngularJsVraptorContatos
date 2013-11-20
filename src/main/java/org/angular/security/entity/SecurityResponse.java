@@ -1,5 +1,12 @@
 package org.angular.security.entity;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que define o DTO para response das requisições de autenticação e autorização da aplicação
+ *
+ */
 public class SecurityResponse {
 
 	private boolean authenticated;

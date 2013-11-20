@@ -10,6 +10,13 @@ import com.thoughtworks.xstream.converters.SingleValueConverter;
 
 import br.com.caelum.vraptor.ioc.Component;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Classe que define o xtream como componente de serialização do vraptor
+ *
+ */
 @Component
 @SuppressWarnings("rawtypes")
 public class CalendarXstreamSerializer implements SingleValueConverter {

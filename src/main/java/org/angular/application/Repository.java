@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 
+ * @author trgp
+ *
+ * Interface genérica para o padrão de projeto Repository, na interface mais específica esse padrão será melhor explicado
+ * 
+ */
 public interface Repository<T extends Entity, I extends Serializable> {
 	 
 	void insert(T entity);
